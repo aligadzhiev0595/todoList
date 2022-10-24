@@ -1,6 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import { deleteHandler, statusHandler } from "../redux/slices/todoSlice";
-
 const Status = () => {
   const dispatch = useAppDispatch();
   const todos = useAppSelector((s) => s.todos.todoList);
@@ -25,7 +24,7 @@ const Status = () => {
         <div className="col">
           <div className="wrapper d-flex a-center j-between">
             <div>
-              {todos.length === 0 ? "no cases" : <p>{more()} items left</p>}
+              {todos.length === 0 ? "no cases" : <p>{more()} items</p>}
             </div>
             <ul className="status-bar d-flex a-center">
               <li className="status-bar__items mr-5">
