@@ -1,31 +1,34 @@
-import { useAppSelector } from "../redux/redux.hooks";
-import Todo from "./Todo";
+import { FC } from 'react'
+import { useAppSelector } from '../redux/redux.hooks'
+import Todo from './Todo'
 
-const TodoList: React.FC = () => {
-  const todos = useAppSelector((s) => s.todos.todoList);
-  const status = useAppSelector((s) => s.todos.status);
+const TodoList: FC = () => {
+  const todos = useAppSelector((s) => s.todos.todoList)
+  const status = useAppSelector((s) => s.todos.status)
   return (
-    <div>
+    <>
       <ul>
-        {todos
-          .filter((el) => {
-            switch (status) {
-              case "active": {
-                return el.isActive && !el.isCompleted;
+        {todos.length === 0 ? (
+          <li className='todo-box emptyTodo'>Todos is Empty</li>
+        ) : (
+          todos
+            .filter((todo) => {
+              switch (status) {
+                case 'active': {
+                  return todo.isActive && !todo.isCompleted
+                }
+                case 'completed': {
+                  return todo.isCompleted
+                }
+                default:
+                  return todo
               }
-              case "completed": {
-                return el.isCompleted;
-              }
-              default:
-                return el;
-            }
-          })
-          .map((el) => (
-            <Todo key={el.id} {...el} />
-          ))}
+            })
+            .map((todo) => <Todo key={todo.id} {...todo} />)
+        )}
       </ul>
-    </div>
-  );
-};
+    </>
+  )
+}
 
-export default TodoList;
+export default TodoList

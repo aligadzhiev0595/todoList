@@ -28,6 +28,9 @@ h1 {
   height: 45px;
   padding: 10px;
 }
+.emptyTodo{
+  justify-content: center;
+}
 .input {
   width: 100%;
   border: none;
@@ -46,8 +49,6 @@ h1 {
 }
 .btn-delete {
   cursor: pointer;
-  display: flex;
-  justify-content: flex-end;
   width: 25px;
   height: 25px;
 }
@@ -63,6 +64,7 @@ h1 {
 }
 .through {
   text-decoration: line-through;
+  color: #7e7e7e88
 }
 .status {
   width: 100%;

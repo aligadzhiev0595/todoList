@@ -1,34 +1,36 @@
-import { useAppDispatch } from "../redux/redux.hooks";
-import { toggleHandler, removeHandler } from "../redux/slices/todoSlice";
-import { AiOutlineDelete, AiOutlineCheckCircle } from "react-icons/ai";
-import { ImRadioUnchecked } from "react-icons/im";
-import ITodo from "../interface/ITodo";
+import { FC } from 'react'
+import { useAppDispatch } from '../redux/redux.hooks'
+import { toggleHandler, removeHandler } from '../redux/slices/todoSlice'
 
-const Todo: React.FC<ITodo> = ({ id, title, isCompleted }) => {
-  const dispatch = useAppDispatch();
+import { AiOutlineDelete, AiOutlineCheckCircle } from 'react-icons/ai'
+import { ImRadioUnchecked } from 'react-icons/im'
+
+import ITodo from '../interface/ITodo'
+
+const Todo:FC<ITodo> = ({ id, title, isCompleted }) => {
+  const dispatch = useAppDispatch()
 
   return (
-    <li className="todo-box">
-      <div onClick={() => dispatch(toggleHandler(id))} className="inner d-flex a-center">
+    <li className='todo-box'>
+      <div
+        onClick={() => dispatch(toggleHandler(id))}
+        className='inner d-flex a-center'
+      >
         {isCompleted ? (
-          <AiOutlineCheckCircle className="success" />
+          <AiOutlineCheckCircle className='success' />
         ) : (
-          <ImRadioUnchecked className="unsuccess" />
+          <ImRadioUnchecked className='unsuccess' />
         )}
-        <p
-          className={isCompleted ? "through" : ""}
-        >
-          {title}
-        </p>
+        <p className={isCompleted ? 'through' : ''}>{title}</p>
       </div>
       <div>
         <AiOutlineDelete
-          className="btn-delete"
+          className='btn-delete'
           onClick={() => dispatch(removeHandler(id))}
         />
       </div>
     </li>
-  );
-};
+  )
+}
 
-export default Todo;
+export default Todo

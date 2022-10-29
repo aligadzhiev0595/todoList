@@ -1,4 +1,3 @@
-import React from 'react'
 import { useAppDispatch, useAppSelector } from '../redux/redux.hooks'
 import { deleteHandler, statusHandler } from '../redux/slices/todoSlice'
 const Status = () => {
@@ -15,8 +14,8 @@ const Status = () => {
   }
 
   const more = () => {
-    const fillter = todos.filter((el) => el.isActive && !el.isCompleted).length
-    return fillter === 0 ? 'no' : fillter
+    const res = todos.filter((el) => el.isActive && !el.isCompleted).length
+    return res === 0 ? 'no' : res
   }
 
   return (

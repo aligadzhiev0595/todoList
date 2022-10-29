@@ -1,54 +1,48 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import Todo from '../../interface/typeTodo'
-
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import Todo from '../../interface/ITodo'
 
 type todosState = {
-  // typeOf initial state
-  todoList: Todo[];
-  input: string;
-  status: string;
-};
+  todoList: Todo[]
+  input: string
+  status: string
+}
 
 const initialState: todosState = {
-  // typeOf passed to variable
   todoList: [],
-  input: "",
-  status: "all",
-};
+  input: '',
+  status: 'all',
+}
 
 const todoSlice = createSlice({
-  name: "todos",
+  name: 'todos',
   initialState,
   reducers: {
     addTodo(state, action: PayloadAction<string>) {
-      // typeOf for action
       state.todoList.push({
         title: action.payload,
         id: Date.now(),
         isCompleted: false,
         isActive: true,
-      });
+      })
     },
     toggleHandler(state, action: PayloadAction<number>) {
-      // typeOf for action
-      const toggledTodo = state.todoList.find((el) => el.id === action.payload);
-      if (toggledTodo) toggledTodo.isCompleted = !toggledTodo.isCompleted;
+      const toggledTodo = state.todoList.find((el) => el.id === action.payload)
+      if (toggledTodo) toggledTodo.isCompleted = !toggledTodo.isCompleted
     },
     removeHandler(state, action: PayloadAction<number>) {
-      // typeOf for action
-      state.todoList = state.todoList.filter((el) => el.id !== action.payload);
+      state.todoList = state.todoList.filter((el) => el.id !== action.payload)
     },
     inputHandler(state, action: PayloadAction<string>) {
-      state.input = action.payload;
+      state.input = action.payload
     },
     statusHandler(state, action: PayloadAction<string>) {
-      state.status = action.payload;
+      state.status = action.payload
     },
     deleteHandler(state, action: PayloadAction<Todo[]>) {
-      state.todoList = action.payload;
+      state.todoList = action.payload
     },
   },
-});
+})
 
 export const {
   addTodo,
@@ -57,6 +51,6 @@ export const {
   inputHandler,
   statusHandler,
   deleteHandler,
-} = todoSlice.actions;
+} = todoSlice.actions
 
-export default todoSlice.reducer;
+export default todoSlice.reducer
