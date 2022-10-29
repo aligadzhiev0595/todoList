@@ -1,4 +1,4 @@
-import { useAppDispatch } from "../hooks/hooks";
+import { useAppDispatch } from "../redux/redux.hooks";
 import { toggleHandler, removeHandler } from "../redux/slices/todoSlice";
 import { AiOutlineDelete, AiOutlineCheckCircle } from "react-icons/ai";
 import { ImRadioUnchecked } from "react-icons/im";

@@ -1,4 +1,4 @@
-import { useAppSelector } from "../hooks/hooks";
+import { useAppSelector } from "../redux/redux.hooks";
 import Todo from "./Todo";
 
 const TodoList: React.FC = () => {

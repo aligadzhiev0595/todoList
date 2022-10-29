@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from "../hooks/hooks";
+import { useAppDispatch, useAppSelector } from "../redux/redux.hooks";
 import { addTodo, inputHandler } from "../redux/slices/todoSlice";
 import { IoIosArrowDown } from "react-icons/io";
 import React from "react";
@@ -12,7 +12,7 @@ const TodoForm: React.FC = () => {
     dispatch(inputHandler(""));
   };
 
-  const formHandler = (e: any) => {
+  const formHandler = (e:React.SyntheticEvent) => {
     e.preventDefault();
     if (input.length !== 0) {
       dispatch(addTodo(input));

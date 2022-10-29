@@ -44,7 +44,7 @@ const todoSlice = createSlice({
     statusHandler(state, action: PayloadAction<string>) {
       state.status = action.payload;
     },
-    deleteHandler(state, action: PayloadAction<any>) {
+    deleteHandler(state, action: PayloadAction<Todo[]>) {
       state.todoList = action.payload;
     },
   },
