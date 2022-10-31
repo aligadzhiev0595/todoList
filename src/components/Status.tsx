@@ -23,7 +23,7 @@ const Status = () => {
       <div className='row'>
         <div className='col'>
           <div className='wrapper d-flex a-center j-between'>
-            <div>{todos.length === 0 ? 'no cases' : <p>{more()} items left</p>}</div>
+            <div>{todos.length === 0 ? 'no items' : <p>{more()} items</p>}</div>
             <ul className='status-bar d-flex a-center'>
               <li className='status-bar__items mr-5'>
                 <button
@@ -57,7 +57,7 @@ const Status = () => {
             </ul>
             <div>
               <button className={`btns `} onClick={deleteCompleted}>
-                Clear completed
+                Clear
               </button>
             </div>
           </div>

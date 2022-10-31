@@ -9,7 +9,7 @@ const TodoList: FC = () => {
     <>
       <ul>
         {todos.length === 0 ? (
-          <li className='todo-box emptyTodo'>Todos is Empty</li>
+          <li className='todo-box emptyTodo'>Here will be your TODO</li>
         ) : (
           todos
             .filter((todo) => {

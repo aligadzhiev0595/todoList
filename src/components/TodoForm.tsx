@@ -25,6 +25,7 @@ const TodoForm: FC = () => {
     <form onSubmit={formHandler}>
       <input
         className='input'
+        type='text'
         value={input}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           dispatch(inputHandler(e.target.value))
