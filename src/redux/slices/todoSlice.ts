@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import Todo from '../../interface/ITodo'
 
-type todosState = {
+type InitialStateProps = {
   todoList: Todo[]
   input: string
   status: string
 }
 
-const initialState: todosState = {
+const initialState: InitialStateProps = {
   todoList: [],
   input: '',
   status: 'all',
@@ -17,6 +17,9 @@ const todoSlice = createSlice({
   name: 'todos',
   initialState,
   reducers: {
+    hydrate(state, action: PayloadAction<InitialStateProps>) {
+      return action.payload
+    },
     addTodo(state, action: PayloadAction<string>) {
       state.todoList.push({
         title: action.payload,
@@ -45,6 +48,7 @@ const todoSlice = createSlice({
 })
 
 export const {
+  hydrate,
   addTodo,
   toggleHandler,
   removeHandler,
